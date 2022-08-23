@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - AlKitab Academy</title>
+    <meta name="description" content="AlKitab Academy">
+    <meta name="author" content="AlKitab Academy">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Style Files -->
+    <link rel="stylesheet" href="~/App_Themes/Vena/css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="~/App_Themes/Vena/css/colors/1.css" id="color" />
+    @RenderSection("css", false)
+
+</head>
+<body>
+
+    <!-- Main Menu / Start
+    ================================================== -->
+    <header class="menu">
+
+        <div class="container">
+
+            <!-- Mobile Only Menu Button  -->
+            <a href="#menu" class="menu-trigger"><i class="icon-reorder"></i></a>
+
+            <!-- Logo  -->
+            <a class="logo" href="~/">
+                <img src="~/App_Themes/Vena/images/slides/AlKitablogo.png" alt="AlKitab Academy">
+                <!--span class="logo-text" style="font-family: 'open sans';"><b>AlKitab</b>Academy<font class="logo-text1"> BELIEVE-LEARN-TEACH</font></span--> 
+            </a>
+            <!--div style="clear: both"></div>
+
+            <!-- Navigation -->
+            @Html.Action("Index", "Navigation")
+
+            <!-- End of Navigation -->
+        </div><!-- End of container -->
+    </header>
+    <!-- Main Menu / End
+    ================================================== -->
+
+    @RenderBody()
+
+    <!-- Footer / Start
+    ================================================== -->
+    <footer>
+        <section id="footer-main">
+            <div class="container">
+
+                <div class="twelve columns">
+                    <h4>Quick Links</h4>
+                    <hr class="smalline">
+                    <div class="container">
+                        <ul class="four columns nested-list footer-recent-news">
+                            <li>
+                                <a href="~/Activities">Activities</a>
+                                <ul>
+                                    <li><a href="~/Activities#field-trips">Field Trips</a></li>
+                                    <li><a href="~/Activities#sports-aksl">Sports</a></li>
+                                    <li><a href="~/Activities#recreational-activities">Recreational</a></li>
+                                    <li><a href="~/Activities#events-lectures">Events</a></li>
+                                    <li><a href="~/Activities#competitions">Competitions</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="four columns nested-list footer-recent-news">
+                            <li>
+                               <a href="">Admissions</a>
+                                <ul class="scroll">
+                                    <li><a href="">Policy</a></li>
+                                    <li><a href="">Assessment</a></li>
+                                    <li><a href="">Registration</a></li>
+                                    <li><a href="">Fee Schedule</a></li>
+                                    <li><a href="">Academy Holidays</a></li>
+								<!-- 
+								<a href="~/Admission">Admissions</a>
+                                <ul class="scroll">
+                                    <li><a href="~/Admission#policy">Policy</a></li>
+                                    <li><a href="~/Admission#assessment">Assessment</a></li>
+                                    <li><a href="~/Admission#registration">Registration</a></li>
+                                    <li><a href="~/Admission#fees-schedule">Fee Schedule</a></li>
+                                    <li><a href="~/Admission#calendar">Academy Holidays</a></li>
+									-->
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="four columns nested-list footer-recent-news">
+                            <li>
+                               <a href="">Gallery</a>
+                                <ul>
+                                    <li><a href="">Academy Programs</a></li>
+                                    <li><a href="">Field Trips</a></li>
+                                    <li><a href="">Sports</a></li>
+                                    <li><a href="">Recreational</a></li>
+                                    <li><a href="">Events</a></li>
+
+ 							  <!-- <a href="~/Gallery">Gallery</a>
+                                <ul>
+                                    <li><a href="~/Gallery#academy-programs">Academy Programs</a></li>
+                                    <li><a href="~/Gallery#field-trips">Field Trips</a></li>
+                                    <li><a href="~/Gallery#sports">Sports</a></li>
+                                    <li><a href="~/Gallery#recreational">Recreational</a></li>
+                                    <li><a href="~/Gallery#events">Events</a></li>
+									-->
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="four columns">
+                    <h4>Contact Us</h4>
+                    <hr class="smalline">
+                    <ul class="getintouch">
+                        <li><i class="icon-map-marker"></i>7575 Danbro Cres., Mississauga, ON L5N 6P9 </li>
+                        <li><i class="icon-phone"></i>(647) 404-6622</li>
+                        <li><i class="icon-envelope"></i>info@alkitabacademy.com</li>
+                        <!-- <li><a href="~/Home/Contact"><i class="icon-link">Go to contact form</i></a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="footer-bar">
+            <div class="container">
+                <div class="eight columns">
+                    <div class="footer-logo"><img src="~/App_Themes/Vena/images/slides/AlKitablogo.png" alt="" title=""><span>2016 © Copyright AlKitab Academy.</span></div>
+                </div>
+
+                <div class="eight columns">
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="icon-twitter"></i></a></li>
+                        <li><a href="#"><i class="icon-facebook"></i></a></li>
+                        <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                        <!-- remove for now -fk -->
+                        <li><a href="#"><i class="icon-pinterest"></i></a></li>
+                        <!-- remove for now -fk -->
+                        <li><a href="#"><i class="icon-google-plus"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+
+    <!-- ==================================================
+    Footer / End -->
+    <!-- Scripts -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- jQuery library -->
+    <script type="text/javascript" src="~/App_Themes/Vena/js/jquery-1.9.0.min.js"></script>
+
+    <script src="~/Scripts/jquery.localscroll.js"></script>
+    <script src="~/Scripts/jquery.scrollTo.js"></script>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="~/App_Themes/Vena/js/jquery.jcarousel.js"></script>
+    <script type="text/javascript" src="~/App_Themes/Vena/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="~/App_Themes/Vena/js/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="~/App_Themes/Vena/js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="~/App_Themes/Vena/js/jquery.twitter.js"></script>
+    <script type="text/javascript" src="~/App_Themes/Vena/js/jquery.quovolver.js"></script>
+    <script type="text/javascript" src="~/App_Themes/Vena/js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="~/App_Themes/Vena/js/jquery.tooltipster.js"></script>
+    <script type="text/javascript" src="~/App_Themes/Vena/js/jquery.jpanelmenu.js"></script>
+    <script type="text/javascript" src="~/App_Themes/Vena/js/jquery.swipebox.min.js"></script>
+    <script type="text/javascript" src="~/App_Themes/Vena/js/swipe.js"></script>
+    <script type="text/javascript" src="~/App_Themes/Vena/js/retina.js"></script>
+
+    <script type="text/javascript" src="~/App_Themes/Vena/js/custom.js"></script>
+
+    <script src="~/App_Themes/Vena/js/switcher.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('.scroll').localScroll({ duration: 800 });
+        });
+    </script>
+    @RenderSection("scripts", false)
+
+</body>
+</html>

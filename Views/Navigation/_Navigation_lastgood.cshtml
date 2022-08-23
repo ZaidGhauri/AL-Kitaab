@@ -1,0 +1,97 @@
+﻿@model IEnumerable<AlKitab.Models.Program>
+
+<nav>
+    <ul class="navigation">
+        <li class="search"><input class="searchform" type="search" value="" placeholder="Search"></li>
+        <!--<li class="current"><a href="~/">Home</a></li>-->
+        <li>
+            <a href="~/Home/About">About AlKitab</a>
+        </li>
+        <li>
+            <a href="javascript:;" class="arrow">Programs</a>
+            <!-- Drop-Down / Start -->
+            <ul>
+                @foreach (var item in Model)
+                {
+                    <li><a href="~/Program/Details/@item.ProgramId">@item.ProgramTitle</a></li>
+                }
+            </ul>
+            <!-- Drop-Down / End -->
+        </li>
+        <li>
+            <a href="~/Activities" class="arrow">Activities</a>
+            <!-- Drop-Down / Start -->
+            <ul>
+                <li><a href="~/Activities#field-trips">Field Trips</a></li>
+                <li><a href="~/Activities#sports-aksl">Sports</a></li>
+                <li><a href="~/Activities#recreational-activities">Recreational</a></li>
+                <li><a href="~/Activities#events-lectures">Events</a></li>
+                <li><a href="~/Activities#competitions">Competitions</a></li>
+            </ul>
+            <!-- Drop-Down / End -->
+        </li>
+        <li>
+			
+            <!-- Drop-Down / Start -->
+			
+			<a href="" class="arrow">Admissions</a>
+            
+            <ul class="scroll">
+				<li><a href="">Policy</a></li>
+                <li><a href="">Assessment</a></li>
+                <li><a href="">Registration</a></li>
+                <li><a href="">Fee Schedule</a></li>
+                <li><a href="">Academy Holidays</a></li>
+			<!--
+			<a href="~/Admission" class="arrow">Admissions</a>
+            <ul class="scroll">
+                <li><a href="~/Admission#policy">Policy</a></li>
+                <li><a href="~/Admission#assessment">Assessment</a></li>
+                <li><a href="~/Admission#registration">Registration</a></li>
+                <li><a href="~/Admission#fees-schedule">Fee Schedule</a></li>
+                <li><a href="~/Admission#calendar">Academy Holidays</a></li>
+            
+			-->
+			</ul>
+            <!-- Drop-Down / End -->
+        </li>
+
+
+        <li>
+            
+			<!-- Drop-Down / Start -->
+			
+			<a href="" class="arrow">Gallery</a>
+             <ul>
+			  <li><a href="">Academy Programs</a></li>
+                <li><a href="">Field Trips</a></li>
+                <li><a href="">Sports</a></li>
+                <li><a href="">Recreational</a></li>
+                <li><a href="">Events</a></li>
+               <!--
+			   <a href="~/Gallery" class="arrow">Gallery</a>
+              <ul>
+			   <li><a href="~/Gallery#academy-programs">Academy Programs</a></li>
+                <li><a href="~/Gallery#field-trips">Field Trips</a></li>
+                <li><a href="~/Gallery#sports">Sports</a></li>
+                <li><a href="~/Gallery#recreational">Recreational</a></li>
+                <li><a href="~/Gallery#events">Events</a></li>
+                
+				-->
+				</ul> 
+            <!-- Drop-Down / End -->
+        </li>
+        <li>
+            <a href="~/Resources" class="arrow">Resources</a>
+            <!-- Drop-Down / Start -->
+            <ul>
+                <li><a href="~/Resources">Students</a></li>
+                <li><a href="~/Resources">Parents</a></li>
+                <li><a href="~/Resources">Teachers</a></li>
+            </ul>
+            <!-- Drop-Down / End -->
+        </li>
+
+        <li><a href="~/Home/Contact">Contact Us</a></li>
+    </ul>
+</nav>

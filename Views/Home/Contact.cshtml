@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+<!-- Title Bar / Srart
+================================================== -->
+<div class="page-title">
+    <div class="container">
+        <div class="twelve columns">
+            <h1>Contact</h1>
+        </div>
+
+        <nav class="four columns">
+            <ul class="breadcrumbs">
+                <li><a href="index.html">Home</a></li>
+                <li><i class="icon-angle-right"></i></li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+
+    </div>
+</div>
+<!-- Title Bar / End
+================================================== -->
+<!-- Contact / Srart
+================================================== -->
+<section class="contact">
+    <div class="container">
+
+        <!-- Sidebar Start -->
+        <div class="four columns">
+            <div class="contact-sidebar">
+
+                <div class="widget">
+                    <h3>Information</h3>
+                    <p>
+                        We are based in Mississauga and have been serving GTA for past 12 years.
+                    </p>
+                </div>
+
+                <div class="widget">
+                    <h3>General Inquiries</h3>
+                    <ul>
+                        <li><i class="icon-building"></i>7575 Danbro Cres.</li>
+                        <li><i class="icon-map-marker"></i>Mississauga, ON L5N 6P9</li>
+                    </ul>
+                    <ul>
+                        <li><i class="icon-phone"></i>(647) 404-6622</li>
+                        <li><i class="icon-envelope"></i>info@alkitabacademy.com</li>
+                        <li><i class="icon-globe"></i>http://alkitabacademy.com</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- Sidebar End -->
+
+        <div class="twelve columns">
+
+            <!-- Map -->
+            <div id="google-map">
+                <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Mississauga&amp;aq=&amp;sll=43.5910202,-79.6827743&amp;sspn=43.5910202,-79.6827743&amp;ie=UTF8&amp;hq=&amp;hnear=Mississauga;t=m&amp;ll=43.5910202,-79.6827743&amp;spn=43.5910202,-79.6827743&amp;z=11&amp;iwloc=&amp;output=embed"></iframe><br />
+            </div>
+
+            <!-- Contact Form -->
+            <div class="form">
+
+                <div class="alert success success-message">
+                    <div class="close">×</div>
+                    <p>Your message has been sent!</p>
+                </div>
+
+                <form class="clearfix" method="post" action="contact.php">
+
+                    <div class="field">
+                        <label>Name <span>*</span></label>
+                        <input type="text" name="name" class="text" value="" />
+                    </div>
+
+                    <div class="field">
+                        <label>Email <span>*</span></label>
+                        <input type="email" name="email" class="text" value="" />
+                    </div>
+
+                    <div class="field field-last">
+                        <label>Subject <span>*</span></label>
+                        <input type="text" name="thesubject" class="text" value="" />
+                    </div>
+
+                    <textarea name="message" class="text"></textarea>
+
+                    <button id="send" class="btn">Submit</button>
+                    <div class="loading"></div>
+
+                </form>
+
+            </div>
+            <!-- Contact Form / End -->
+
+        </div>
+
+    </div>
+</section>
+<!-- Contact / End
+================================================== -->

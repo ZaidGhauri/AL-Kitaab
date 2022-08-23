@@ -1,0 +1,175 @@
+﻿@model alkitaab.Models.OrderModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .ten-margin-bottom {
+        margin-bottom: 15px;
+    }
+
+    .thirty-margin-bottom {
+        margin-bottom: 30px;
+    }
+
+    .white {
+        color: #FFF;
+    }
+
+    .labels {
+        float: left;
+        line-height: 35px;
+        width: 75px;
+    }
+</style>
+<div class="promobar2">
+    <div class="container subscribe">
+        <div style="padding: 10px">
+            <h8>Buy Tickets</h8>
+        </div>
+        <div class="sixteen columns">
+            <div class="four columns">&nbsp;</div>
+            <div class="eight columns">
+                <div id="subscribe-msg" class="alert error" style="display: none;">
+                    <div class="close">×</div>
+                    <p>This is an alert box!</p>
+                </div>
+            </div>
+        </div>
+        @using (Html.BeginForm())
+        {
+            <div class="four columns">
+                @Html.TextBoxFor(m => m.Customer.FirstName, new { @class = "form-control", placeholder = "First Name" })
+                @Html.ValidationMessageFor(m => m.Customer.FirstName, "", new { @class = "text-danger" })
+            </div>
+            <div class="four columns">
+                @Html.TextBoxFor(m => m.Customer.LastName, new { @class = "form-control", placeholder = "Last Name" })
+                @Html.ValidationMessageFor(m => m.Customer.LastName, "", new { @class = "text-danger" })
+            </div>
+            <div class="four columns">
+                @Html.TextBoxFor(m => m.Customer.Email, new { @class = "form-control", placeholder = "Email" })
+                @Html.ValidationMessageFor(m => m.Customer.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="three columns">
+                @Html.TextBoxFor(m => m.Customer.Phone, new { @class = "form-control", placeholder = "Phone" })
+                @Html.ValidationMessageFor(m => m.Customer.Phone, "", new { @class = "text-danger" })
+            </div>
+            <div class="one columns thirty-margin-bottom">&nbsp;</div>
+            <div class="four columns">
+                @Html.TextBoxFor(m => m.Customer.Address, new { @class = "form-control", placeholder = "Address" })
+            </div>
+            <div class="four columns">
+                @Html.TextBoxFor(m => m.Customer.City, new { @class = "form-control", placeholder = "City" })
+            </div>
+            <div class="four columns">
+                @Html.TextBoxFor(m => m.Customer.PostalCode, new { @class = "form-control", placeholder = "Postal Code" })
+            </div>
+            <div class="three columns">
+                @Html.TextBoxFor(m => m.Customer.ReferedBy, new { @class = "form-control", placeholder = "Refered By" })
+            </div>
+            <div class="sixteen columns thirty-margin-bottom">&nbsp;</div>
+            <hr />
+            <div class="four columns white">&nbsp;</div>
+            <div class="four columns white">Quantity</div>
+            <div class="four columns white">Fees</div>
+            <div class="four columns white">Sub Total</div>
+            <br />
+            <br />
+            <div class="three columns white thirty-margin-bottom">
+                <span style="font-size:12px;">Adults and Child 11 Years & Above</span>
+            </div>
+            <div class="four columns">
+                @Html.TextBoxFor(m => m.SixteenOverQty, new { @class = "form-control", @type = "number", @min = "0", @max = "25", onkeyup = "qtySixteenOverChange();", onchange = "qtySixteenOverChange();" })
+            </div>
+            <div class="four columns">
+                @Html.TextBoxFor(m => m.strSixteenOverFee, "{0:c}", new { @class = "form-control", @readonly = "true" })
+            </div>
+            <div class="four columns">
+                @Html.TextBoxFor(m => m.strSixteenOverTotal, "{0:c}", new { @class = "form-control", @readonly = "true" })
+            </div>
+            <div class="one columns thirty-margin-bottom">&nbsp;</div>
+            <div class="three columns white thirty-margin-bottom">
+                <span style="font-size:12px;">Child, Age 6 to 10 Years</span>
+            </div>
+            <div class="four columns">
+                @Html.TextBoxFor(m => m.BetweenTexAndSixteenQty, new { @class = "form-control", @type = "number", @min = "0", @max = "500", onkeyup = "qtyBetweenTexAndSixteenChange();", onchange = "qtyBetweenTexAndSixteenChange()" })
+            </div>
+            <div class="four columns">
+                @Html.TextBoxFor(m => m.strBetweenTexAndSixteenFee, "{0:c}", new { @class = "form-control", @readonly = "true" })
+            </div>
+            <div class="four columns">
+                @Html.TextBoxFor(m => m.strBetweenTexAndSixteenTotal, "{0:c}", new { @class = "form-control", @readonly = "true" })
+            </div>
+            <div class="one columns thirty-margin-bottom">&nbsp;</div>
+            <div class="three columns white thirty-margin-bottom">
+                <span style="font-size:12px;">Child, Age 5 Years & Under</span>
+            </div>
+            <div class="four columns">
+                @Html.TextBoxFor(m => m.UnderTenQty, new { @class = "form-control", @type = "number", @min = "0", @max = "500", onkeyup = "qtyUnderTenChange();", onchange = "qtyUnderTenChange()" })
+            </div>
+            <div class="four columns">
+                @Html.TextBoxFor(m => m.strUnderTenFee, "{0:c}", new { @class = "form-control", @readonly = "true" })
+            </div>
+            <div class="four columns">
+                @Html.TextBoxFor(m => m.strUnderTenTotal, "{0:c}", new { @class = "form-control", @readonly = "true" })
+            </div>
+            <div class="one columns thirty-margin-bottom">&nbsp;</div>
+            <div class="sixteen columns thirty-margin-bottom">&nbsp;</div>
+            <div class="eleven columns">&nbsp;</div>
+            <div class="labels white">Sub Total:</div>
+            <div class="three columns ten-margin-bottom">
+                @Html.TextBoxFor(m => m.strSubTotal, "{0:c}", new { @class = "form-control", @readonly = "true" })
+            </div>
+            <div class="eleven columns">&nbsp;</div>
+            <div class="labels white">Tax:</div>
+            <div class="three columns ten-margin-bottom">
+                @Html.TextBoxFor(m => m.Tax, new { @class = "form-control", @readonly = "true" })
+            </div>
+            <div class="eleven columns">&nbsp;</div>
+            <div class="labels white">Total:</div>
+            <div class="three columns ten-margin-bottom">
+                @Html.TextBoxFor(m => m.strNetTotal, "{0:c}", new { @class = "form-control", @readonly = "true" })
+            </div>
+            <div class="twelve columns">&nbsp;</div>
+            <div class="two columns" style="margin-right: -18px;">
+                @Html.CheckBoxFor(m => m.Customer.IsSubscribe, new { @class = "form-control"}) Is Subscribe
+            </div>
+            <div class="two columns">
+                <button type="submit" class="btn btn-primary">Checkout</button>
+            </div>
+        }
+    </div>
+</div>
+<script>
+    function calculateSubtotal() {
+        var SixteenOverSub = parseFloat($('#strSixteenOverTotal').val().replace('$', ''));
+        var BetweenTexAndSixteenSub = parseFloat($('#strBetweenTexAndSixteenTotal').val().replace('$', ''));
+        var underTenSub = parseFloat($('#strUnderTenTotal').val().replace('$', ''));
+        var value = parseFloat(SixteenOverSub + BetweenTexAndSixteenSub + underTenSub);
+        var num = '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        $('#strSubTotal').val(num)
+        var strSubTotal = parseFloat($('#strSubTotal').val().replace('$', ''));
+        var Tax = parseFloat($('#Tax').val().replace('$', ''));
+        value = parseFloat(strSubTotal + Tax); //value = parseFloat(strSubTotal - Tax);
+        num = '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        $('#strNetTotal').val(num)
+    }
+    function qtySixteenOverChange() {
+        var value = parseFloat($('#SixteenOverQty').val() * $('#strSixteenOverFee').val().replace('$', ''));
+        var num = '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        $('#strSixteenOverTotal').val(num)
+        calculateSubtotal();
+    }
+    function qtyBetweenTexAndSixteenChange() {
+        var value = parseFloat($('#BetweenTexAndSixteenQty').val() * $('#strBetweenTexAndSixteenFee').val().replace('$', ''));
+        var num = '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        $('#strBetweenTexAndSixteenTotal').val(num)
+        calculateSubtotal();
+    }
+    function qtyUnderTenChange() {
+        var value = parseFloat($('#UnderTenQty').val() * $('#strUnderTenFee').val().replace('$', ''));
+        var num = '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        $('#strUnderTenTotal').val(num)
+        calculateSubtotal();
+    }
+</script>

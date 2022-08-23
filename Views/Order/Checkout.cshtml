@@ -1,0 +1,259 @@
+﻿@model alkitaab.Models.OrderModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="/app_themes/vena/css/bootstrap.css" rel="stylesheet">
+}
+
+<div class="container-checkout">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+    {        
+    <div class="row">
+        <div class="col-md-8">
+            <fieldset>
+
+                <div class="fff">Buy Ticket Purchase</div>
+                <!-- Text input-->
+
+                <br />
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="requestName">First Name</label>
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.Customer.FirstName, new { @class = "form-control input-md", placeholder = "First Name" })
+                                @Html.ValidationMessageFor(m => m.Customer.FirstName, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="last_name">Last Name</label>
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.Customer.LastName, new { @class = "form-control input-md", placeholder = "Last Name" })
+                          @Html.ValidationMessageFor(m => m.Customer.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="declineType">Email</label>
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.Customer.Email, new { @class = "form-control input-md", placeholder = "Email" })
+                                @Html.ValidationMessageFor(m => m.Customer.Email, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="minB">Phone</label>
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.Customer.Phone, new { @class = "form-control input-md", placeholder = "Phone" })
+                                @Html.ValidationMessageFor(m => m.Customer.Phone, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="maxB">Address</label>
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.Customer.Address, new { @class = "form-control input-md", placeholder = "Address" })
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="econLimOil">City</label>
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.Customer.City, new { @class = "form-control input-md", placeholder = "City" })
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="econLimGas">Postal Code</label>
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.Customer.PostalCode, new { @class = "form-control input-md", placeholder = "Postal Code" })
+                    </div>
+                </div>
+
+                <!-- Textarea -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="comments">Refered By</label>
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.Customer.ReferedBy, new { @class = "form-control input-md", placeholder = "Refered By" })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="deadline"></label>
+                    <div class="col-md-2">
+                        <h4>Quantity</h4>
+
+                    </div>
+                    <div class="col-md-2">
+
+                        <h4>Fees</h4>
+                    </div>
+                    <div class="col-md-2">
+                        <h4>Sub Total</h4>
+
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-8 control-label" for="deadline">Adult</label>
+                    <div class="col-md-2 col-xs-8">
+                        @Html.TextBoxFor(m => m.AdultQty, new { @class = "form-control input-md", @type = "number", @min = "0", @max = "25", onkeyup = "qtyAdultChange();", onchange = "qtyAdultChange();" })
+
+                    </div>
+                    <div class="col-md-2 col-xs-8">
+                        @Html.TextBoxFor(m => m.strAdultFee, "{0:c}", new { @class = "form-control input-md", @readonly = "true" })
+                    </div>
+                    <div class="col-md-2 col-xs-8">
+                        @Html.TextBoxFor(m => m.strAdultTotal, "{0:c}", new { @class = "form-control input-md", @readonly = "true" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-8 control-label" for="deadline">
+                        Youth<br />
+                        (Age 11 and above)</label>
+                    <div class="col-md-2 col-xs-8">
+                        @Html.TextBoxFor(m => m.SixteenOverQty, new { @class = "form-control input-md", @type = "number", @min = "0", @max = "25", onkeyup = "qtySixteenOverChange();", onchange = "qtySixteenOverChange();" })
+
+                    </div>
+                    <div class="col-md-2 col-xs-8">
+                        @Html.TextBoxFor(m => m.strSixteenOverFee, "{0:c}", new { @class = "form-control input-md", @readonly = "true" })
+                    </div>
+                    <div class="col-md-2 col-xs-8">
+                        @Html.TextBoxFor(m => m.strSixteenOverTotal, "{0:c}", new { @class = "form-control input-md", @readonly = "true" })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-8 control-label" for="deadline">
+                        Child<br />
+                        (Age 6 - 11)</label>
+                    <div class="col-md-2 col-xs-8">
+                        @Html.TextBoxFor(m => m.BetweenTexAndSixteenQty, new { @class = "form-control input-md", @type = "number", @min = "0", @max = "500", onkeyup = "qtyBetweenTexAndSixteenChange();", onchange = "qtyBetweenTexAndSixteenChange()" })
+                    </div>
+                    <div class="col-md-2 col-xs-8">
+                        @Html.TextBoxFor(m => m.strBetweenTexAndSixteenFee, "{0:c}", new { @class = "form-control input-md", @readonly = "true" })
+                    </div>
+                    <div class="col-md-2 col-xs-8">
+                        @Html.TextBoxFor(m => m.strBetweenTexAndSixteenTotal, "{0:c}", new { @class = "form-control input-md", @readonly = "true" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-8 control-label" for="deadline">
+                        Child<br />
+                        (Age 5 and under)</label>
+                    <div class="col-md-2 col-xs-8">
+                        @Html.TextBoxFor(m => m.UnderTenQty, new { @class = "form-control input-md", @type = "number", @min = "0", @max = "500", onkeyup = "qtyUnderTenChange();", onchange = "qtyUnderTenChange()" })
+                    </div>
+                    <div class="col-md-2 col-xs-8">
+                        @Html.TextBoxFor(m => m.strUnderTenFee, "{0:c}", new { @class = "form-control input-md", @readonly = "true" })
+
+                    </div>
+                    <div class="col-md-2 col-xs-8">
+                        @Html.TextBoxFor(m => m.strUnderTenTotal, "{0:c}", new { @class = "form-control input-md", @readonly = "true" })
+
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-md-4 nnn">
+            <fieldset>
+                <br>
+                <!-- Form Name -->
+                <h3>Request Details</h3>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="requestName">Sub Total :</label>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.strSubTotal, "{0:c}", new { @class = "form-control input-md", @readonly = "true" })
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="company_name">Tax :</label>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Tax, new { @class = "form-control input-md", @readonly = "true" })
+
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="company_name">Total :</label>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.strNetTotal, "{0:c}", new { @class = "form-control input-md", @readonly = "true" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="company_name"></label>
+                    <div class="col-md-8">
+                        @Html.CheckBoxFor(m => m.Customer.IsSubscribe) Is Subscribe
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="company_name"></label>
+                    <div class="col-md-8">
+                        <button type="submit" class="btn btn-primary">Checkout</button>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    }    
+</div>
+<script src="/app_themes/vena/js/bootstrap.js"></script>
+<script>
+    function calculateSubtotal() {
+        var AdultSub = parseFloat($('#strAdultTotal').val().replace('$', ''));
+        var SixteenOverSub = parseFloat($('#strSixteenOverTotal').val().replace('$', ''));
+        var BetweenTexAndSixteenSub = parseFloat($('#strBetweenTexAndSixteenTotal').val().replace('$', ''));
+        var underTenSub = parseFloat($('#strUnderTenTotal').val().replace('$', ''));
+        var value = parseFloat(AdultSub + SixteenOverSub + BetweenTexAndSixteenSub + underTenSub);
+        var num = '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        $('#strSubTotal').val(num)
+        var strSubTotal = parseFloat($('#strSubTotal').val().replace('$', ''));
+        var Tax = parseFloat($('#Tax').val().replace('$', ''));
+        value = parseFloat(strSubTotal + Tax); //value = parseFloat(strSubTotal - Tax);
+        num = '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        $('#strNetTotal').val(num)
+    }
+    function qtyAdultChange() {
+        var value = parseFloat($('#AdultQty').val() * $('#strAdultFee').val().replace('$', ''));
+        var num = '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        $('#strAdultTotal').val(num)
+        calculateSubtotal();
+    }
+    function qtySixteenOverChange() {
+        var value = parseFloat($('#SixteenOverQty').val() * $('#strSixteenOverFee').val().replace('$', ''));
+        var num = '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        $('#strSixteenOverTotal').val(num)
+        calculateSubtotal();
+    }
+    function qtyBetweenTexAndSixteenChange() {
+        var value = parseFloat($('#BetweenTexAndSixteenQty').val() * $('#strBetweenTexAndSixteenFee').val().replace('$', ''));
+        var num = '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        $('#strBetweenTexAndSixteenTotal').val(num)
+        calculateSubtotal();
+    }
+    function qtyUnderTenChange() {
+        var value = parseFloat($('#UnderTenQty').val() * $('#strUnderTenFee').val().replace('$', ''));
+        var num = '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        $('#strUnderTenTotal').val(num)
+        calculateSubtotal();
+    }
+</script>

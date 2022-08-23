@@ -1,0 +1,285 @@
+﻿@model AlKitab.ViewModels.HomeVM
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<!-- Revolution Slider / Start
+    ================================================== -->
+<div class="fullwidthbanner-container">
+    <div class="fullwidthbanner" >
+        <ul>
+            @foreach (var item in Model.SliderItems)
+            {
+                var path = Url.Content(Constants.SliderUploadRoot + "/" + item.FilePath);
+                <li data-delay="5000" data-transition="slidehorizontal">
+                    <img data-fullwidthcentering="off" src="@path" alt="@item.SliderTitle">
+
+                    <div class="caption large_thin white sft"
+                         data-x="565"
+                         data-y="230"
+                         data-speed="500"
+                         data-start="1100"
+                         data-easing="easeOutExpo">
+                        <p>@item.SliderTitle</p>
+                    </div>
+
+                    <div class="caption small_thin white sft"
+                         data-x="565"
+                         data-y="275"
+                         data-speed="700"
+                         data-start="1200"
+                         data-easing="easeOutBack">
+                        <p>@item.Description</p>
+                    </div>
+                </li>
+            }
+        </ul>
+        <div class="tp-bannertimer"></div>
+    </div>
+</div>
+<!-- End of slider -->
+<!-- Revolution Slider / End
+================================================== -->
+<!-- Recent Works / Start
+================================================== -->
+<div class="container">
+    @*<div class="thirteen columns">
+        </div>
+        <div class="three columns">
+        </div>*@
+
+    <div class="carousel-intro">
+        <h3>Programs</h3>
+        <div class="carousel-navi">
+            @*<a href="portfolio-four-columns.html" class="go-to-portfolio"><i class="icon-th-large"></i></a>*@
+            <div id="work-prev" class="arrow-left jcarousel-prev"><i class="icon-angle-left"></i></div>
+            <div id="work-next" class="arrow-right jcarousel-next"><i class="icon-angle-right"></i></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <section class="jcarousel recent-work-jc">
+        <ul>
+            @foreach (var item in Model.FeaturedPrograms)
+            {
+                var path = Url.Content(Constants.ProgramUploadRoot + "/" + item.FilePath);
+                    <!-- Recent Work Item -->
+                <li class="four columns">
+                    <a href="~/Program/Details/@item.ProgramId" class="recent-item">
+                        <figure>
+                            <div class="hold medium">
+                                <img src="@path" alt="@item.ProgramTitle">
+                                <a href="@path" class="hover-zoom swipebox"><i class="icon-search"></i></a>
+                                <a href="~/Program/Details/@item.ProgramId" class="hover-link"><i class="icon-link"></i></a>
+                            </div>
+                            <figcaption class="item-description">
+                                <h5>@item.ProgramTitle</h5>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </li>
+            }
+        </ul>
+    </section>
+
+</div>
+<!-- Recent Works / End
+================================================== -->
+<!-- Recent Works / Start
+================================================== -->
+<div class="container">
+
+    <div class="carousel-intro">
+        <h3>Events</h3>
+        <div class="carousel-navi">
+            @*<a href="portfolio-four-columns.html" class="go-to-portfolio"><i class="icon-th-large"></i></a>*@
+            <div id="work-prev" class="arrow-left jcarousel-prev"><i class="icon-angle-left"></i></div>
+            <div id="work-next" class="arrow-right jcarousel-next"><i class="icon-angle-right"></i></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <section class="jcarousel recent-work-jc">
+        <ul>
+            @foreach (var item in Model.Events)
+            {
+                var path = Url.Content(Constants.EventUploadRoot + "/" + item.FilePath);
+                <!-- Recent Work Item -->
+                <li class="four columns">
+                    <a href="#" class="recent-item">
+                        <figure>
+                            <div class="hold medium">
+                                <img src="@path" alt="@item.EventTitle">
+                                <a href="@path" class="hover-zoom swipebox"><i class="icon-search"></i></a>
+                                <a href="~/Event/Details/@item.EventId" class="hover-link"><i class="icon-link"></i></a>
+                            </div>
+                            <figcaption class="item-description">
+                                <h5>@item.EventTitle</h5>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </li>
+            }
+        </ul>
+    </section>
+</div>
+<!-- Recent Works / End
+================================================== -->
+<!-- Recent Blog / Start
+================================================== -->
+<div class="container">
+ <div class="carousel-intro">
+ 
+ <h3>Announcements</h3>
+ <div class="clearfix"></div>
+ </div>
+
+    <section class="jcarousel recent-work-jc" id="recent-news">
+
+        <ul class="clearfix">
+
+            @foreach (var item in Model.RecentNews)
+            {
+                var path = Url.Content(Constants.RecentNewsUploadRoot + "/" + item.FilePath);
+                <!-- Recent News Item -->
+                <li class="four columns">
+                    <article class="news-item">
+
+                        <div class="news-thumb">
+                            <a href="~/RecentNew/Details/@item.RecentNewsId"><img src="@path" alt=""></a>
+                        </div>
+
+                        <!-- Post Informations -->
+                        <div class="date">
+                            <span class="month">@item.RecentNewsDate.ToString("MMM") </span>
+                            <span class="day">@item.RecentNewsDate.Day</span>
+                        </div>
+
+                        <!-- Post Content -->
+                        <div class="description">
+                            <h4><a href="~/RecentNew/Details/@item.RecentNewsId">@item.RecentNewsTitle</a></h4>
+                        </div>
+
+                    </article>
+                </li>
+            }
+        </ul>
+    </section>
+
+    <!-- 1/4 column / Start -->
+    @*<div class="one_fourth column">
+
+            <section class="testimonials">
+                <h3>Testimonials</h3>
+
+                <blockquote class="quote">
+                    <div class="bubble">
+                        <p>"In hendrerit, felis ac dapibus sollicitudin, leo leo tincidunt sapien, sit amet blandit tellus augue at arcu. Sed placerat adipiscing mi vitae vulputate. Sed odio nunc, congue elementum rhoncus massa. Pellentesque tempus diam sit amet tortor volutpat urna aliquam. "</p>
+                        <div class="quote-author">
+                            <cite>
+                                <strong>John G. Riffe,</strong>
+                                <span>Engineer</span>
+                            </cite>
+                        </div>
+                    </div>
+                </blockquote>
+
+                <blockquote class="quote">
+                    <div class="bubble">
+                        <p>"Pellentesque justo urna, feugiat quis bibendum vel, consequat nec diam. Suspendisse potenti. Sed eu blandit neque. Nullam ut justo augue, sed accumsan est. Nam mi felis, gravida sit amet accumsan vitae, elementum ac lacus. Aenean ultricies sollicitudin dignissim.</p>
+                        <div class="quote-author">
+                            <cite>
+                                <strong>Ann Smith,</strong>
+                                <span>Redactor</span>
+                            </cite>
+                        </div>
+                    </div>
+                </blockquote>
+
+                <blockquote class="quote">
+                    <div class="bubble">
+                        <p>"Suspendisse ultrices lorem sed ante mollis non luctus mauris convallis. In sed massa mauris, sit amet iaculis augue. Etiam dignissim fringilla vehicula. Proin tempus lacus ac velit convallis facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae."</p>
+                        <div class="quote-author">
+                            <cite>
+                                <strong>John Doe,</strong>
+                                <span>Designer</span>
+                            </cite>
+                        </div>
+                    </div>
+                </blockquote>
+            </section>
+
+
+        </div>*@
+    <!-- 1/4 column / End -->
+  
+</div>
+<!-- ==================================================
+Recent News / End -->
+<!-- Subscribe / Start
+================================================== -->
+<div class="promobar">
+    <div class="container subscribe">
+
+        <h7>Subscribe</h7>
+
+        <div class="sixteen columns">
+            <div class="four columns">&nbsp;</div>
+            <div class="eight columns">
+                <div id="subscribe-msg" class="alert error" style="display: none;">
+                    <div class="close">×</div>
+                    <p>This is an alert box!</p>
+                </div>
+            </div>
+        </div>
+
+        @using (Ajax.BeginForm("SubscribeUser", "Home", new AjaxOptions { HttpMethod = "POST", OnFailure = "SubscribeError", OnComplete = "SubscribeSuccess" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="seven columns">
+                @Html.TextBoxFor(m => m.SubscribeUser.SubscribeUserName, new { @class = "form-control", placeholder = "Name" })
+                @Html.ValidationMessageFor(m => m.SubscribeUser.SubscribeUserName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="seven columns">
+                @Html.TextBoxFor(m => m.SubscribeUser.SubscribeUserEmail, new { @class = "form-control", placeholder = "Email" })
+                @Html.ValidationMessageFor(m => m.SubscribeUser.SubscribeUserEmail, "", new { @class = "text-danger" })
+            </div>
+            <div class="two columns">
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </div>
+        }
+    </div>
+</div>
+<!-- ==================================================
+Subscribe / End -->
+
+@section scripts{
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+
+    <script>
+        function SubscribeSuccess(data) {
+            if (data.responseText.length > 0) {
+                $('#subscribe-msg').addClass('alert error');
+                $('#subscribe-msg').show();
+                $('#subscribe-msg p').text(data.responseText);
+            } else {
+                $('#subscribe-msg').addClass('alert success');
+                $('#subscribe-msg').show();
+                $('#subscribe-msg p').text('Subscribed Successfully.');
+                $('#SubscribeUser_SubscribeUserName').val('');
+                $('#SubscribeUser_SubscribeUserEmail').val('');
+            }
+            console.log(data);
+        }
+
+        function SubscribeError(error) {
+            $('#subscribe-msg').addClass('alert error');
+            $('#subscribe-msg').show();
+            $('#subscribe-msg p').text('Unable to Subscribe. Please try again later.');
+        }
+    </script>
+}

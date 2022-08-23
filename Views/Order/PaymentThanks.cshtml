@@ -1,0 +1,34 @@
+﻿@model alkitaab.Models.OrderModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .white {
+        color: #FFF;
+    }
+</style>
+<div class="promobar2">
+    <div class="container subscribe">
+        <div style="padding: 10px">
+            <h8>Payment Thanks</h8>
+        </div>
+        <div class="sixteen columns">
+            <div class="four columns">&nbsp;</div>
+            <div class="eight columns">
+                <div id="subscribe-msg" class="alert error" style="display: none;">
+                    <div class="close">×</div>
+                    <p>This is an alert box!</p>
+                </div>
+            </div>
+        </div>
+        @{ 
+            if (Session["ORDERCODE"] != null)
+            {
+                <div class="twelve columns white">Your order code: @Session["ORDERCODE"].ToString()</div>
+            }
+        }
+        <div class="twelve columns white">JazakAllah!, We have recieved your order</div>
+        <div class="twelve columns white">Receipt has been emailed to the address provided. PLEASE PRINT THIS RECEIPT AND BRING IT WITH YOU AS IT IS REQUIRED FOR ENTRY TO THE EVENT.</div>
+    </div>
+</div>

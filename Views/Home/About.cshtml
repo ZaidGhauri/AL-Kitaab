@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "About Us";
+}
+
+<!-- Title Bar / Start
+================================================== -->
+<div class="page-title">
+    <div class="container">
+        <div class="twelve columns">
+            <h1>About Us</h1>
+        </div>
+        <nav class="four columns">
+            <ul class="breadcrumbs">
+                <li><a href="~/">Home</a></li>
+                <li><i class="icon-angle-right"></i></li>
+                <li>About Us</li>
+            </ul>
+        </nav>
+
+    </div>
+</div>
+<!-- Title Bar / End
+================================================== -->
+<!-- About / Start
+================================================== -->
+<section class="about">
+    <div class="container">
+        <!-- About us text -->
+        <div>
+            <p class="bigger">
+
+                Al Kitab Academy envisions a global picture of learning for its students.
+                This Academy came into existence for serving a cause; this cause being the Book of Allah Subhanahu Wa Ta’ala.
+                The driving force for the Academy is its students and we strive hard to offer programs as per their needs.
+                Our daily efforts exhibit a positive influence on our students and develop a healthy and trustworthy relationship
+                between teachers, parents and the community at large.
+
+            </p>
+
+            <p class="bigger">
+                The Academy visualizes a goal for all its students and provides them with a common platform where they can stand united
+                with their teachers and peers sharing their ideas and dreams. We pursue to reach high aims and objectives for our students
+                in creating positive inspirations around the world with our mission, vision and values in mind.
+            </p>
+        </div>
+        <div class="mission">
+            <h2>Mission</h2>
+            <h4 class="this-animate animated fadeInDown this-animated" data-animate="fadeInDown">BELIEVE – LEARN – TEACH</h4>
+            <h4>THE QURAN & SUNNAH</h4>
+            <div class="ayat this-animate animated fadeIn this-animated" data-animate="fadeIn">
+                <img src="~/Content/img/verse 1.png" width="500" />
+            </div>
+            <p><b>This is the Book, in it is guidance sure, without doubt, to those who fear Allah</b></p>
+            <p><b>(Al-Quran 2:2)</b></p>
+            <p><b>Rasul Allah Salla Allahu ‘Alayhi Wa Sallam said,</b></p>
+            <div class="ayat this-animate animated fadeIn this-animated" data-animate="fadeIn">
+                <img src="~/Content/img/verse 2.jpg" width="500" />
+            </div>
+            <p><b>The best amongst you is one who learns the Quran and who teaches it</b></p>
+            <p><b>(Sahih Al-Bukhari)</b></p>
+        </div>
+    </div>
+    <div class="fullwidth">
+        <div class="container this-animate animated fadeInLeft this-animated" data-animate="fadeInLeft">
+            <h2>Vision</h2>
+            <br />
+            <p>
+                Our vision is to prepare each student for "life" - a successful life in this world and the Hereafter. We will aim to help:
+            </p>
+            <ul class="nested-list">
+                <li>Create learning opportunities where students help in the community and represent as integral members of the society</li>
+                <li>Offer all students a wide variety of learning programs, both academic and religious to enable them to reach the pinnacle of learning</li>
+                <li>Present leadership opportunities to encourage confidence, growth and responsibility</li>
+                <li>Build strong and healthy foundations based on student-teacher relationship</li>
+                <li>Access to open communication between teachers, students and parent body to address all concerns</li>
+                <li>Provide a platform for lifelong opportunities for students and staff to learn, work and succeed</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container this-animate animated fadeInLeft this-animated" data-animate="fadeInLeft">
+        <h2>Values</h2>
+        <br />
+        <p>
+            Our values are the foundation and embodiment of our true and sincere relationship with Allah.
+            We foster strong and healthy relationships with students and parents for the pleasure of Allah.
+            Together, hand in hand, we cultivate a culture of peace, happiness and empathy among our students to
+            spread it around in the world as per our mission "Believe - Learn - Teach".
+        </p>
+        <ul class="nested-list">
+            <li>Follow the teachings of the Quran and Sunnah in all matters of our life</li>
+            <li>Be compassionate and caring towards all members of our community and the world at large</li>
+            <li>Value trust and honesty and demonstrate it in words and actions</li>
+            <li>Show cooperation and work in collaboration with students and teachers</li>
+            <li>Appreciating and valuing the contributions of everyone - students, teachers and parents</li>
+            <li>Treat everyone with respect and value and create an environment of peace and harmony</li>
+            <li>Exhibit accountability and responsibility in all our actions</li>
+        </ul>
+    </div>
+
+</section>
+<!-- About / End
+================================================== -->
+
+@section css {
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            // animate on scroll
+            $(".this-animate").each(function () {
+                $(this).appear(function () {
+                    $(this).addClass("animated").addClass($(this).data("animate")).addClass("this-animated");
+                });
+            });
+            // end animate on scroll
+        });
+    </script>
+}
